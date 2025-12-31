@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SASTRA Campus Smart Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet" 
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+  <link
+    rel="stylesheet"
+    href="style.css"
+    crossorigin=""
+  />
+</head>
+<body>
+  <header>
+    <h1>SASTRA Campus Smart Map</h1>
+
+    <div class="search-container">
+      <div class="search-wrapper">
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="Search block / hostel / facility or say its name…"
+        />
+        <button id="voiceSearchBtn" title="Voice search">
+          🎙
+        </button>
+      </div>
+    </div>
+
+    <div class="chip-bar">
+      <button class="chip" data-query="hostel">Hostels</button>
+      <button class="chip" data-query="School">Academic blocks</button>
+      <button class="chip" data-query="Center">Centers</button>
+      <button class="chip" data-query="Canteen">Food</button>
+    </div>
+  </header>
+
+  <main>
+    <aside id="sidebar">
+      <div>
+        <div class="section-title">Voice & navigation</div>
+        <div class="controls">
+          <button id="voiceNavBtn" class="primary">
+            🎧 Start voice navigation
+          </button>
+          <button id="stopVoiceBtn" class="danger">
+            ⏹ Stop all voice
+          </button>
+          <div id="status" class="status-text">
+            Ready. Try “Navigate to Vinaya block 3 hostel”.
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title" style="margin-top:0.4rem;">
+          Locations
+        </div>
+        <div id="locationList" class="location-list"></div>
+      </div>
+    </aside>
+
+    <div id="map"></div>
+  </main>
+
+  <!-- Modal -->
+  <div id="infoModalBackdrop" class="modal-backdrop">
+    <div class="modal">
+      <h2 id="modalTitle"></h2>
+      <p id="modalDesc"></p>
+      <p class="meta" id="modalMeta"></p>
+      <div class="modal-actions">
+        <button class="secondary" id="modalCloseBtn">Close</button>
+        <button class="primary" id="modalNavBtn">
+          Start navigation
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script 
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      crossorigin=""
+  ></script>
+  <script
+    src="script.js"
+  ></script>
+</body>
+</html
